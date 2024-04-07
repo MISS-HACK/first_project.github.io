@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+
+    <style>
+      body {
+        background-color: #ffcccc;
+        color: Pink;
+        text-align: center; /* Center align all content */
+      }
+
+      .container {
+        background-color: #fff; /* Add a background color */
+        padding: 30px;
+        border-radius: 25px;
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+        margin: 0 auto; /* Center the container horizontally */
+        display: inline-block; /* Make sure container width fits content */
+      }
+
+      .button {
+        padding: 10px 20px;
+        font-size: 20px;
+        cursor: pointer;
+        margin: 2px;
+        border-radius: 20px;
+        user-select: none;
+      }
+
+      .const {
+        background-color: #f82d72;
+      }
+
+      .digits {
+        background-color: #3fda08; /* Blue color for digit buttons */
+      }
+
+      .operator {
+        background-color: #b41293;
+        color: #f6e22d;
+      }
+
+      .operator:hover {
+        background-color: pink;
+      }
+
+      .const:hover {
+        background-color: #b3d4f4;
+      }
+
+      .clear {
+        background-color: #d20000;
+        color: #08c3cf;
+      }
+
+      .clear:hover {
+        background-color: #b00000;
+      }
+
+      #display {
+        width: auto; /* Let it resize automatically */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <fieldset id="container">
+        <form name="CALCULATOR">
+          <input id="display" type="text" name="display" readonly />
+          <br /><br />
+          <input
+            class="button digits"
+            type="button"
+            value="7"
+            onclick="appendToDisplay('7')"
+          />
+          <input
+            class="button digits"
+            type="button"
+            value="8"
+            onclick="appendToDisplay('8')"
+          />
+          <input
+            class="button digits"
+            type="button"
+            value="9"
+            onclick="appendToDisplay('9')"
+          />
+          <input
+            class="button const"
+            type="button"
+            value="+"
+            onclick="appendToDisplay('+')"
+          />
+          <br />
+          <input
+            class="button digits"
+            type="button"
+            value="4"
+            onclick="appendToDisplay('4')"
+          />
+          <input
+            class="button digits"
+            type="button"
+            value="5"
+            onclick="appendToDisplay('5')"
+          />
+          <input
+            class="button digits"
+            type="button"
+            value="6"
+            onclick="appendToDisplay('6')"
+          />
+          <input
+            class="button const"
+            type="button"
+            value="-"
+            onclick="appendToDisplay('-')"
+          />
+          <br />
+          <input
+            class="button digits"
+            type="button"
+            value="1"
+            onclick="appendToDisplay('1')"
+          />
+          <input
+            class="button digits"
+            type="button"
+            value="2"
+            onclick="appendToDisplay('2')"
+          />
+          <input
+            class="button digits"
+            type="button"
+            value="3"
+            onclick="appendToDisplay('3')"
+          />
+          <input
+            class="button const"
+            type="button"
+            value="*"
+            onclick="appendToDisplay('*')"
+          />
+          <br />
+          <input
+            class="button clear"
+            type="button"
+            value="C"
+            onclick="clearDisplay()"
+          />
+          <input
+            class="button digits"
+            type="button"
+            value="0"
+            onclick="appendToDisplay('0')"
+          />
+          <input
+            class="button operator"
+            type="button"
+            value="="
+            onclick="calculate()"
+          />
+          <input
+            class="button const"
+            type="button"
+            value="/"
+            onclick="appendToDisplay('/')"
+          />
+        </form>
+      </fieldset>
+    </div>
+    <script>
+      function calculate() {
+        const display = document.getElementById("display");
+        try {
+          display.value = eval(display.value);
+        } catch (error) {
+          display.value = "Error";
+        }
+      }
+
+      function clearDisplay() {
+        const display = document.getElementById("display");
+        display.value = "";
+      }
+
+      function appendToDisplay(value) {
+        const display = document.getElementById("display");
+        display.value += value;
+      }
+    </script>
+  </body>
+</html>
